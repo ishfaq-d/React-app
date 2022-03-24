@@ -13,6 +13,8 @@ function Detail(props) {
 
   const { data: p, loading, error } = useFetch(`products/${id}`);
 
+  console.log("data", p?.skus);
+
   const naviGate = useNavigate();
 
   if (loading) return <Spinner />;
@@ -32,7 +34,7 @@ function Detail(props) {
         <option value="">What Size?</option>
         {p.skus.map((s) => (
           <option key={s.sku} value={s.sku}>
-            {s.sku}
+            {s.size}
           </option>
         ))}
       </select>
@@ -41,7 +43,7 @@ function Detail(props) {
           className="btn btn-primary"
           disabled={!sku}
           onClick={() => {
-            addToCart(p.id, p.sku);
+            addToCart(p.id, sku);
             naviGate("/cart");
           }}
         >
