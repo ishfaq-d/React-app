@@ -12,8 +12,15 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">
-              <HomeIcon />
+            <NavLink to="/" style={{ position: "relative" }}>
+              <HomeIcon
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: -15,
+                  height: "100%",
+                }}
+              />
             </NavLink>
           </li>
           <li>
